@@ -29,6 +29,10 @@ require_once("openvpn.inc");
 require_once("ipsec.inc");
 require_once("interfaces.inc");
 
+if ($vhid=1) {	
+	shell_exec ("ifconfig vtnet0 down");
+}
+
 if (isset($_GET['interface'])) {
 	$argument = $_GET['interface'];
 } else {

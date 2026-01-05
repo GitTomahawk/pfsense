@@ -30,6 +30,13 @@ require_once("ipsec.inc");
 require_once("interfaces.inc");
 require_once("captiveportal.inc");
 
+if ($vhid=1) {
+	sleep(7);
+	shell_exec ("ifconfig vtnet0 up");
+	sleep(3);
+	interface_configure("wan");
+}
+
 if (isset($_GET['interface'])) {
 	$argument = $_GET['interface'];
 } else {
